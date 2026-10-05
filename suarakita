@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suara Kita — berita dari kita, untuk kita</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf8;--card:#fff;--ink:#16181d;--mute:#5d6470;--line:#e4e4df;--red:#c8232c;--soft:#fbeaea;--hero:#16181d;--herotx:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--card:#181b21;--ink:#eceae6;--mute:#9aa1ad;--line:#2a2e36;--red:#ef4b53;--soft:#2a1517;--hero:#1d2027;}}
+:root[data-theme="dark"]{--bg:#101216;--card:#181b21;--ink:#eceae6;--mute:#9aa1ad;--line:#2a2e36;--red:#ef4b53;--soft:#2a1517;--hero:#1d2027;}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;line-height:1.2;margin:0}
+a{color:inherit;text-decoration:none}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:10px}.logo svg{width:40px;height:40px}
+.logo b{font:700 24px Newsreader,Georgia,serif;display:block;line-height:1}.logo small{color:var(--mute);font-size:12px}
+.btn{background:var(--red);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:600 14px Inter,sans-serif;cursor:pointer}
+.btn.o{background:none;color:var(--ink);border:1px solid var(--line)}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}
+nav button{white-space:nowrap;background:none;border:1px solid transparent;color:var(--mute);padding:6px 12px;border-radius:99px;font:600 14px Inter,sans-serif;cursor:pointer}
+nav button.on{background:var(--soft);color:var(--red);border-color:var(--red)}
+.hero{background:var(--hero);color:var(--herotx);border-radius:16px;padding:32px;margin:24px 0;display:grid;gap:12px}
+.tag{color:var(--red);font:600 12px Inter;text-transform:uppercase;letter-spacing:.08em}.hero .tag{color:#ff8c92}
+.hero h1{font-size:clamp(26px,5vw,40px)}.hero p{color:#c9ccd3;margin:0;max-width:640px}
+.meta{font-size:13px;color:var(--mute)}.hero .meta{color:#9aa1ad}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.item{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.th{border-radius:10px;aspect-ratio:1;background:linear-gradient(135deg,var(--red),#f0a3a7);opacity:.85}
+.item h3{font-size:19px;margin:2px 0 4px}.item p{margin:0;color:var(--mute);font-size:14px}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px}
+aside h3{font-size:18px;margin-bottom:8px}
+.bars div{margin:8px 0;font-size:13px}.bars i{display:block;height:8px;border-radius:4px;background:var(--red);margin-top:3px}
+input{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;margin:8px 0}
+section.s{padding:36px 0;border-top:1px solid var(--line)}section.s>h2{font-size:28px;margin-bottom:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{font-size:18px;margin-bottom:6px}.card p{margin:0;color:var(--mute);font-size:14px}
+.price{font:700 28px Newsreader,serif;color:var(--red)}
+.sp{border-left:4px solid var(--red);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0;margin-top:16px;font-size:14px}
+.sp b{color:var(--red)}
+footer{background:var(--hero);color:#c9ccd3;padding:32px 0;margin-top:20px;font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="bar">
+<a class="logo" href="#"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#c8232c"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 16a12 12 0 0 1 12 12"/><path d="M12 10a18 18 0 0 1 18 18"/><path d="M12 22a6 6 0 0 1 6 6"/></g><circle cx="12" cy="28" r="2.4" fill="#fff"/></svg><span><b>suara kita</b><small>berita dari kita, untuk kita</small></span></a>
+<span><button class="btn o" id="th">◐ Tema</button> <button class="btn" onclick="location='#gabung'">Jadi Anggota</button></span>
+</div>
+<nav id="nav"></nav>
+</div></header>
+
+<main class="wrap">
+<article class="hero">
+<span class="tag">Suara Kebijakan · Utama</span>
+<h1>Anggaran Perbaikan Jalan Kampung Naik, Warga Tagih Transparansi Realisasi</h1>
+<p>Tim Redaksi menelusuri dokumen anggaran dan mewawancarai warga di empat kelurahan untuk memeriksa ke mana dana infrastruktur mengalir.</p>
+<span class="meta">Redaksi Suara Kita · 5 Okt 2026 · 8 menit baca · Terverifikasi ✓</span>
+</article>
+
+<div class="grid">
+<div>
+<h2 style="font-size:24px" id="lt">Terbaru</h2>
+<div id="list"></div>
+</div>
+<aside>
+<div class="box"><h3>Buletin Mingguan</h3><p class="meta">Kurasi mendalam langsung ke email, tanpa distorsi media sosial.</p>
+<input id="em" type="email" placeholder="alamat@email.com"><button class="btn" style="width:100%" id="sub">Berlangganan</button><p class="meta" id="msg"></p></div>
+<div class="box"><h3>Kirim Suara Anda</h3><p class="meta">Punya aduan atau inisiatif komunitas? Redaksi akan memverifikasi sebelum menerbitkan.</p><button class="btn o" style="width:100%">Lapor ke Redaksi</button></div>
+<div class="box"><h3>Terpopuler</h3><div class="bars" id="pop"></div></div>
+</aside>
+</div>
+
+<section class="s" id="gabung">
+<span class="tag">Dibiayai pembaca</span>
+<h2>Independen karena didukung bersama</h2>
+<p class="meta">Tanpa patron tunggal. Target 1.000 anggota aktif untuk impas pada bulan ke-12.</p>
+<div class="cards">
+<div class="card"><h3>Keanggotaan Pembaca</h3><div class="price">Rp25.000<small style="font:14px Inter"> /bln</small></div><p>Buletin kuratorial, diskusi eksklusif bersama redaksi, forum dengar pendapat liputan.</p></div>
+<div class="card"><h3>Donasi Liputan</h3><div class="price">Sukarela</div><p>Danai liputan investigasi. Penggunaan dana dilaporkan terbuka di halaman transparansi.</p></div>
+<div class="card"><h3>Literasi Media</h3><div class="price">Gratis</div><p>Webinar dan lokakarya literasi media bersama sponsor terkurasi.</p></div>
+</div>
+</section>
+
+<section class="s" id="transparansi">
+<span class="tag">Transparansi</span>
+<h2>Dari mana dana kami berasal</h2>
+<div class="cards">
+<div class="card"><div class="bars" id="rev"></div></div>
+<div class="card"><h3>Pagar Api Redaksi</h3><p>Ruang redaksi dan bisnis dipisahkan tegas. Tim iklan tidak ikut menentukan agenda liputan. Iklan judi daring, produk berbahaya, dan entitas politik bermasalah ditolak.</p>
+<div class="sp"><b>#Advertorial</b> — Contoh label konten berbayar: wajib ditandai jelas dan tidak boleh menyamarkan fakta.</div></div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<b style="color:#fff">suara kita</b> — berita dari kita, untuk kita<br>
+Patuh pada Kode Etik Jurnalistik dan pedoman pemberitaan media siber. Prototipe; seluruh berita pada halaman ini adalah contoh fiktif.
+</div></footer>
+
+<script>
+const R=["Semua","Suara Kebijakan","Suara Komunitas","Suara Warga","Sudut Pandang"];
+const A=[
+["Suara Komunitas","Warga Bantaran Kali Bergotong Royong Bangun Bank Sampah","Inisiatif ibu-ibu RT 05 kini mengolah dua ton sampah per bulan menjadi pemasukan."],
+["Suara Warga","Data: Angka Putus Sekolah Menengah Naik di Tiga Kecamatan","Analisis data pendidikan lima tahun terakhir menunjukkan ketimpangan akses antarwilayah."],
+["Suara Kebijakan","Layanan Puskesmas Keliling Diperluas, Tapi Jadwal Belum Merata","Kami memetakan jangkauan layanan dan mewawancarai pengguna di pinggiran kota."],
+["Sudut Pandang","Mengapa Berita Lokal Layak Dibayar Pembacanya","Opini tentang keberlanjutan jurnalisme independen di era algoritma."],
+["Suara Komunitas","Pasar Tradisional Gelar Lokakarya Pembayaran Digital untuk Pedagang","Pedagang lansia belajar memakai QRIS dengan pendampingan relawan muda."],
+["Suara Warga","Aduan Air Bersih: Tiga Bulan Tanpa Respons, Warga Lapor Ombudsman","Kronologi aduan dan jawaban otoritas terkait, diverifikasi dua sumber."],
+["Suara Kebijakan","Raperda Tata Ruang Dibuka untuk Masukan Publik, Ini Poin Krusialnya","Ringkasan pasal yang berdampak pada permukiman dan ruang terbuka hijau."]];
+let cur=0;
+const nav=document.getElementById('nav');
+function draw(){
+nav.innerHTML=R.map((r,i)=>`<button class="${i==cur?'on':''}" data-i="${i}">${r}</button>`).join('');
+const L=A.filter(a=>!cur||a[0]==R[cur]);
+document.getElementById('lt').textContent=cur?R[cur]:'Terbaru';
+document.getElementById('list').innerHTML=L.length?L.map((a,i)=>`<div class="item"><div class="th" style="filter:hue-rotate(${i*25}deg)"></div><div><span class="tag">${a[0]}</span><h3>${a[1]}</h3><p>${a[2]}</p><span class="meta">Redaksi · ${i+2} jam lalu</span></div></div>`).join(''):'<p class="meta">Belum ada berita.</p>';
+}
+nav.onclick=e=>{const b=e.target.closest('button');if(b){cur=+b.dataset.i;draw()}};
+const bars=(id,d)=>document.getElementById(id).innerHTML=d.map(x=>`<div>${x[0]}${x[1]?` <b>${x[1]}%</b>`:''}<i style="width:${x[1]||x[2]}%"></i></div>`).join('');
+bars('pop',A.slice(0,4).map((a,i)=>[a[1].slice(0,38)+'…',0,90-i*18]));
+bars('rev',[["Keanggotaan Pembaca",40],["Donasi Publik",25],["Konten Berbayar Transparan",20],["Iklan Terkurasi & Sponsor Event",15]]);
+document.getElementById('sub').onclick=()=>{const v=document.getElementById('em').value;document.getElementById('msg').textContent=/\S+@\S+\.\S+/.test(v)?'Terima kasih! (demo)':'Masukkan email yang valid.'};
+document.getElementById('th').onclick=()=>{const d=document.documentElement,dk=getComputedStyle(d).getPropertyValue('--bg').trim()=='#101216';d.dataset.theme=dk?'light':'dark'};
+draw();
+</script>
+</body>
+</html>
